@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
+	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -101,7 +103,9 @@ func toJSON(r *Result) []byte {
 //Checks an error and then logs and prints accordingly
 func checkErr(err error) {
 	if err != nil {
-		fmt.Println()
+		pc, file, line, _ := runtime.Caller(1)
+		function := strings.TrimPrefix(filepath.Ext(runtime.FuncForPC(pc).Name()), ".")
+		fmt.Println("[" + time.Now().Format("Jan-02-06 3:04pm") + "] Error Warning:" + file + " " + function + "() line:" + strconv.Itoa(line) + " " + err.Error())
 		log.Fatal(err)
 	}
 }
