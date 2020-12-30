@@ -94,7 +94,7 @@ func readJTL(file string) [][]string {
 }
 
 //JSON encodes a Result struct
-func toJSON(r *Result) []byte {
+func (r *Result) JSON() []byte {
 	json, err := json.Marshal(r)
 	checkErr(err)
 	return json
