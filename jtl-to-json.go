@@ -16,10 +16,10 @@ import (
 
 //Result struct: a data structure to hold the cleaned data of a raw JTL file
 type Result struct {
-	TestName            string
-	DateTime            string
-	NintiethPercentiles map[string]int
-	ResponseTimes       map[string][]int
+	TestName            string           `json:"testname"`
+	DateTime            string           `json:"datetime"`
+	NintiethPercentiles map[string]int   `json:"ninetiethpercentiles"`
+	ResponseTimes       map[string][]int `json:"responsetimes"`
 }
 
 //Ptor = Protocol-to-Result | similar shorthand to Itoa or Atoi
