@@ -18,7 +18,7 @@ import (
 type Result struct {
 	TestName            string           `json:"testname"`
 	DateTime            string           `json:"datetime"`
-	NintiethPercentiles map[string]int   `json:"ninetiethpercentiles"`
+	NintiethPercentiles map[string]int   `json:"nintiethpercentiles"`
 	ResponseTimes       map[string][]int `json:"responsetimes"`
 }
 
