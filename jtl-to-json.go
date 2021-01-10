@@ -30,7 +30,7 @@ func Ptor(file string) *Result {
 	np := findNintiethPercentiles(rt)
 	return &Result{
 		TestName:            file,
-		DateTime:            formatDateTime(data[0][0]),
+		DateTime:            formatDateTime(data[1][0]),
 		NintiethPercentiles: np,
 		ResponseTimes:       rt,
 	}
@@ -44,7 +44,7 @@ func Btor(file string) *Result {
 	np := findNintiethPercentiles(rt)
 	return &Result{
 		TestName:            file,
-		DateTime:            formatDateTime(data[0][0]),
+		DateTime:            formatDateTime(data[1][0]),
 		NintiethPercentiles: np,
 		ResponseTimes:       rt,
 	}
@@ -63,7 +63,7 @@ func findNintiethPercentiles(rt map[string][]int) map[string]int {
 //Traverses data to create a map of labels with a corresponding list of responses times
 func mapResponseTimes(data [][]string) map[string][]int {
 	var rt map[string][]int
-	for i := 0; i < len(data); i++ {
+	for i := 1; i < len(data); i++ {
 		label := data[i][2]
 		elapsed, err := strconv.Atoi(data[i][1])
 		checkErr(err)
